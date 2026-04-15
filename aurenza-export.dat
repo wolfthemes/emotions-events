@@ -1,0 +1,181 @@
+a:4:{s:8:"template";s:7:"aurenza";s:4:"mods";a:129:{i:0;b:0;s:18:"custom_css_post_id";i:112;s:12:"color_scheme";s:4:"dark";s:21:"body_background_color";s:7:"#28292d";s:21:"page_background_color";s:7:"#28292d";s:18:"submenu_font_color";s:7:"#3776ff";s:15:"main_text_color";s:7:"#ff4b06";s:17:"strong_text_color";s:7:"#ff4b06";s:14:"body_font_name";s:6:"Outfit";s:14:"menu_font_name";s:6:"Outfit";s:19:"menu_font_transform";s:9:"uppercase";s:15:"menu_font_style";s:6:"normal";s:17:"submenu_font_name";s:13:"IBM Plex Sans";s:22:"submenu_font_transform";s:4:"none";s:18:"submenu_font_style";s:6:"normal";s:17:"heading_font_name";s:6:"Outfit";s:22:"heading_font_transform";s:9:"uppercase";s:18:"heading_font_style";s:6:"normal";s:22:"loading_animation_type";s:4:"none";s:13:"smooth_scroll";s:7:"enabled";s:10:"menu_width";s:5:"boxed";s:10:"menu_style";s:5:"solid";s:15:"mega_menu_width";s:5:"boxed";s:15:"menu_breakpoint";s:4:"1200";s:16:"menu_sticky_type";s:4:"hard";s:21:"menu_cta_content_type";s:7:"socials";s:19:"side_panel_position";s:5:"right";s:16:"menu_font_weight";s:3:"400";s:18:"after_header_block";s:4:"6150";s:19:"before_footer_block";s:4:"6149";s:11:"hero_layout";s:4:"none";s:22:"hero_background_effect";s:4:"none";s:11:"footer_type";s:6:"hidden";s:13:"footer_layout";s:5:"boxed";s:21:"footer_widgets_layout";s:4:"none";s:17:"bottom_bar_layout";s:8:"centered";s:27:"overlay_menu_panel_bg_color";s:7:"#212121";s:19:"side_panel_bg_color";s:7:"#ff4b06";s:16:"sidebars_widgets";a:2:{s:4:"time";i:1688550012;s:4:"data";a:4:{s:19:"wp_inactive_widgets";a:0:{}s:12:"sidebar-main";a:3:{i:0;s:7:"block-2";i:1;s:7:"block-3";i:2;s:7:"block-4";}s:18:"sidebar-side-panel";a:2:{i:0;s:7:"block-5";i:1;s:7:"block-6";}s:14:"sidebar-footer";a:0:{}}}s:19:"submenu_font_weight";s:3:"600";s:24:"menu_font_letter_spacing";i:2;s:27:"submenu_font_letter_spacing";i:0;s:19:"heading_font_weight";s:3:"400";s:27:"heading_font_letter_spacing";i:1;s:12:"menu_socials";s:18:"instagram,facebook";s:14:"product_layout";s:8:"standard";s:21:"product_single_layout";s:8:"standard";s:15:"product_columns";s:1:"4";s:22:"product_item_animation";s:4:"none";s:12:"product_zoom";s:1:"1";s:25:"related_products_carousel";s:0:"";s:14:"cart_menu_item";s:1:"1";s:17:"account_menu_item";s:1:"1";s:21:"shop_search_menu_item";s:1:"1";s:17:"products_per_page";s:1:"8";s:18:"wishlist_menu_item";s:1:"1";s:13:"payment_image";s:0:"";s:19:"shop_checkout_image";s:0:"";s:11:"menu_layout";s:9:"top-right";s:12:"accent_color";s:7:"#ff4b06";s:17:"currency_switcher";s:1:"1";s:11:"post_layout";s:13:"sidebar-right";s:12:"post_display";s:4:"grid";s:17:"post_grid_padding";s:3:"yes";s:11:"date_format";s:0:"";s:15:"post_pagination";s:9:"load_more";s:17:"post_excerpt_type";s:6:"manual";s:18:"post_single_layout";s:12:"sidebar-left";s:15:"post_author_box";s:2:"no";s:18:"post_related_posts";s:3:"yes";s:19:"post_item_animation";s:4:"none";s:21:"post_display_elements";s:48:"show_thumbnail,show_date,show_text,show_category";s:32:"newsletter_form_single_blog_post";s:0:"";s:16:"top_bar_block_id";s:0:"";s:24:"submenu_background_color";s:7:"#28292d";s:15:"logo_visibility";s:6:"always";s:8:"facebook";s:67:"www.facebook.com/p/Klara-Emotions-Events-die-bewegen-61579647205103";s:7:"twitter";s:0:"";s:9:"instagram";s:39:"www.instagram.com/klara.emotions.events";s:14:"stacked_images";s:1:"1";s:11:"work_layout";s:8:"standard";s:12:"work_display";s:4:"grid";s:17:"work_grid_padding";s:3:"yes";s:19:"work_item_animation";s:4:"none";s:15:"work_pagination";s:9:"load_more";s:14:"works_per_page";s:1:"9";s:16:"post_hero_layout";s:5:"small";s:14:"logo_max_width";s:5:"180px";s:14:"nav_bar_bg_img";s:0:"";s:12:"video_layout";s:8:"standard";s:18:"video_grid_padding";s:3:"yes";s:13:"video_display";s:4:"grid";s:20:"video_item_animation";s:4:"none";s:13:"video_onclick";s:8:"lightbox";s:16:"video_pagination";s:9:"load_more";s:15:"videos_per_page";s:1:"9";s:19:"video_single_layout";s:13:"sidebar-right";s:22:"video_display_elements";s:49:"show_date,show_category,show_tags,show_extra_meta";s:14:"release_layout";s:8:"standard";s:15:"release_display";s:4:"grid";s:20:"release_grid_padding";s:3:"yes";s:18:"release_pagination";s:9:"load_more";s:17:"releases_per_page";s:1:"9";s:13:"enable_cursor";s:3:"yes";s:20:"custom_menu_block_id";s:4:"6151";s:13:"artist_layout";s:8:"standard";s:14:"artist_display";s:4:"grid";s:19:"artist_grid_padding";s:3:"yes";s:17:"artist_pagination";s:9:"load_more";s:16:"artists_per_page";s:2:"12";s:12:"event_layout";s:8:"standard";s:13:"event_display";s:4:"list";s:18:"event_grid_padding";s:3:"yes";s:19:"artist_single_width";s:9:"fullwidth";s:20:"artist_single_layout";s:13:"sidebar-right";s:24:"events_terms_artist_sync";s:1:"1";s:22:"work_terms_artist_sync";s:1:"1";s:24:"videos_terms_artist_sync";s:1:"1";s:9:"logo_text";s:31:"Emotions - Events, die bewegen.";s:15:"page_transition";s:3:"yes";s:23:"custom_menu_sticky_type";s:4:"soft";s:20:"loading_logo_primary";s:0:"";s:22:"loading_logo_secondary";s:0:"";s:26:"loading_logo_primary_light";s:76:"http://sandbox.wolfthemes.com/wp-content/uploads/2026/03/MF-Logo-1-light.png";s:28:"loading_logo_secondary_light";s:85:"http://sandbox.wolfthemes.com/wp-content/uploads/2026/03/MF-Logo-2-light-scaled-1.png";s:18:"nav_menu_locations";a:3:{s:6:"mobile";i:94;s:9:"secondary";i:94;s:7:"primary";i:18;}s:9:"logo_dark";s:123:"http://sandbox.wolfthemes.com/wp-content/uploads/2026/03/emotions_sekundaerlogo_mit_slogan_invertiert_rgb_1200px@300ppi.png";s:10:"logo_light";s:125:"http://sandbox.wolfthemes.com/wp-content/uploads/2026/03/emotions_sekundaerlogo_mit_slogan_verlaufchili_rgb_1200px@300ppi.png";s:8:"logo_svg";s:116:"https://neu.emotions-events.at/wp-content/uploads/2026/01/mit_abstandemotions_sekundaerlogo_mit_slogan_weiss_rgb.svg";}s:7:"options";a:20:{s:9:"site_icon";s:4:"7995";s:22:"woocommerce_demo_store";s:2:"no";s:29:"woocommerce_demo_store_notice";s:79:"This is a demo store for testing purposes &mdash; no orders shall be fulfilled.";s:29:"woocommerce_shop_page_display";s:0:"";s:36:"woocommerce_category_archive_display";s:0:"";s:35:"woocommerce_default_catalog_orderby";s:10:"menu_order";s:30:"woocommerce_single_image_width";s:3:"940";s:33:"woocommerce_thumbnail_image_width";s:3:"640";s:30:"woocommerce_thumbnail_cropping";s:3:"1:1";s:43:"woocommerce_thumbnail_cropping_custom_width";s:1:"4";s:44:"woocommerce_thumbnail_cropping_custom_height";s:1:"3";s:34:"woocommerce_checkout_company_field";s:6:"hidden";s:36:"woocommerce_checkout_address_2_field";s:8:"optional";s:32:"woocommerce_checkout_phone_field";s:8:"optional";s:46:"woocommerce_checkout_highlight_required_fields";s:3:"yes";s:55:"woocommerce_checkout_terms_and_conditions_checkbox_text";s:44:"I have read and agree to the website [terms]";s:40:"woocommerce_checkout_privacy_policy_text";s:161:"Your personal data will be used to process your order, support your experience throughout this website, and for other purposes described in our [privacy_policy].";s:26:"wp_page_for_privacy_policy";s:1:"0";s:25:"woocommerce_terms_page_id";s:0:"";s:23:"nav_menus_created_posts";a:0:{}}s:6:"wp_css";s:5032:".clip-text h1{
+      color: transparent!important;
+      background-clip: text;
+      -webkit-background-clip: text;
+      background-image: url(https://preview.wolfthemes.store/app/uploads/sites/60/revslider/video-media/1526873104_optimized_1.jpeg);
+      background-size: cover;
+      background-position: center;
+}
+
+.wc-block-cart__sidebar{
+	border-radius:8px;
+	color:white;
+}
+
+.wc-block-cart__sidebar .wc-block-components-button{
+	background:var(--beige-color);
+}
+
+.login-form-container .woocommerce-form-login__submit:hover {
+    color: black !important;
+}
+
+.ticket-button:hover {
+	background:white!important;
+	color:black!important;
+}
+
+/*Menü Farben*/
+
+.menu-item-inner {
+  color: #ffffff; !important;
+}
+
+@media (min-width: 1200px) {
+  .button-menu {
+    display: none !important;
+  }
+}
+
+.button-menu {
+  color: #ffffff;
+  padding: 12px 24px;
+  border-radius: 999px;         
+  border: none;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.menu-light:not(.custom-menu-open):not(.menu-dark) {
+  --foreground-color: #ff4b06 !important;
+}
+
+/*Menü Button*/
+
+/* MOBILE MENU BUTTON — HARD OVERRIDE (scope as much as possible) */
+button.hamburger-link.button-menu.button,
+button.hamburger-link.button-menu.button:hover,
+button.hamburger-link.button-menu.button:focus,
+button.hamburger-link.button-menu.button:active {
+  background: #ff5a00 !important;
+  background-image: none !important;
+  color: #fff !important;
+
+  opacity: 1 !important;
+  filter: none !important;
+  mix-blend-mode: normal !important;
+
+  border: 0 !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+
+  width: 44px !important;
+  height: 44px !important;
+  padding: 0 !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  border-radius: 999px !important;
+  line-height: 1 !important;
+  font-size: 0 !important; /* kills text-based icon alignment issues */
+  transform: none !important;
+}
+
+button.hamburger-link.button-menu.button::before {
+  content: "";
+  width: 18px !important;
+  height: 12px !important;
+  display: block;
+
+  background:
+    linear-gradient(
+      to bottom,
+      #fff 0 2px,
+      transparent 2px 5px,
+      #fff 5px 7px,
+      transparent 7px 10px,
+      #fff 10px 12px
+    ) !important;
+}
+
+/* Put the mobile header / menu toggle ABOVE hero overlays */
+header,
+.site-header,
+.elementor-location-header,
+.elementor-element.elementor-sticky,
+.elementor-section,
+.elementor-container {
+  position: relative;
+}
+
+button.hamburger-link.button-menu.button {
+  position: relative !important;
+  z-index: 999999 !important;
+}
+
+/* If the button sits inside a wrapper link/div, lift that too */
+button.hamburger-link.button-menu.button,
+button.hamburger-link.button-menu.button * ,
+button.hamburger-link.button-menu.button::before {
+  position: relative;
+  z-index: 999999 !important;
+}
+
+
+/*Kontakt Formular Text Farben*/
+
+.menu-light, .panel-font-light, .wolf-core-font-light  {
+ --foreground-color: #ffffff; !important
+} 
+
+/*Kontakt Formular Linie Farben*/
+
+.wp-block-search .wp-block-search__input, .wpcf7-form-control-wrap
+input[type=checkbox], input[type=color], input[type=date], input[type=datetime-local], input[type=datetime], input[type=email], input[type=month], input[type=number], input[type=password], input[type=search], input[type=tel], input[type=text], input[type=time], input[type=url], input[type=week], select, textarea {
+background-color: transparent!important;
+border: var(--border-width) solid;
+border-color: #FF4B06!important;
+border-radius: 0;
+box-shadow: none!important;
+color: inherit!important; }
+
+/*Footer Links*/
+
+.elementor-widget-text-editor a:not(.no-link-style), .link, .link-list a .elementor-icon-list-text, p:not(.attachment)>a:not(.tag-cloud-link):not(.no-link-style):not(.button):not(.theme-button-text):not(.theme-button-text-accent):not(.theme-button-secondary):not(.theme-button-special):not(.theme-button-primary):not(input[type=submit]):not(.button-download):not(.added_to_cart):not(.button-secondary):not(.menu-link):not(.filter-link):not(.entry-link):not(.more-link):not(.wvc-image-inner):not(.wvc-button):not(.wvc-bigtext-link):not(.wvc-fittext-link):not(.ui-tabs-anchor):not(.wvc-icon-title-link):not(.wvc-icon-link):not(.wvc-social-icon-link):not(.wvc-team-member-social):not(.wolf-tweet-link):not(.author-link) {
+border: 0!important;
+color: #FFFFFF!important;
+font-weight: 700;
+padding: 0 1px;
+position: relative;
+transition: color .3s ease;
+white-space: nowrap;
+z-index: 0;
+}
+
+/*Footer Display Custom Footer*/
+
+.elementor-6149 {
+  display: none !important;
+}
+
+/* Keep your injected Elementor footer visible */
+.custom-footer-wrap {
+  display: block !important;
+}
+
+/* Button Newsletter */
+
+.wolf-core-mailchimp-submit svg path {
+fill: #ffffff!important;
+}
+
+/*********************/
+.entry-product-grid .wc-block-grid__product-title, .entry-product-grid .woocommerce-loop-product__title{
+	font-size:24px!important;
+}";}
