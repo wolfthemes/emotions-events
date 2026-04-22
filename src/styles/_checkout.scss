@@ -1,32 +1,155 @@
-body.woocommerce-checkout{
-	background: linear-gradient(180deg, #2e1208 0%, #110604 60%, #0a0402 100%);
+body.woocommerce-checkout .content-inner{
+	background-color:transparent;
+	background: linear-gradient(0deg, #28292D, #772C1B);
+
+	.content-wrapper {
+		padding-top:var(--desktop-menu-height);
+	}
 }
 
 .wp-block-woocommerce-checkout{
-	margin: 0 auto;
+	margin: 0 auto!important;
 }
 
 .wp-block-woocommerce-checkout-fields-block{
 
-	background:rgba(255,255,255,.5);
-	border:1px solid rgba(255,255,255,1);
-	border-radius:var(--theme-border-radius);
+	background:rgba(255,255,255,.2)!important;
+	border:1px solid rgba(255,255,255,.5)!important;
+	border-radius:var(--theme-border-radius)!important;
 	padding:50px;
 
-	input,
-	textarea{
-		border:1px solid #FF3300;
-		background-color:transparent!important;
+
+	.wc-block-components-text-input{
+
+		input,
+		textarea,
+		select{
+			padding-left:0!important;
+			border-color:#FF3300;
+			background-color:transparent!important;
+			color:white!important;
+		}
+
+		label{
+			left:0!important;
+		}
+
+		option{
+
+		}
 	}
 }
 
-.wc-block-components-sidebar-layout .wc-block-components-main,
+.wp-block-woocommerce-checkout-order-summary-block{
+	border:none!important;
+}
+
+.woocommerce-checkout select {
+	background-color:transparent!important;
+}
+
+.wc-block-components-sidebar-layout .wc-block-components-main {
+
+}
+
+.wc-block-components-sidebar-layout {
+	color:white;
+}
+
+.wc-block-components-sidebar-layout
+.wc-block-components-main,
 .wc-block-components-sidebar{
-	width:50%;
+	width:49%!important;
+	// padding:0!important;
+	padding-top:40px!important;
+	padding-bottom:40px!important;
+
+	& > * {
+		// padding:0 40px;
+	}
+}
+
+.wc-block-components-totals-wrapper{
+	// padding: 25px 0 !important;
+}
+
+.woocommerce-cart .wc-block-components-sidebar,
+.woocommerce-checkout .wc-block-components-sidebar{
+	padding:0;
+	margin-left:1%;
+	background-color:#1C1D21;
+	border-color:#1C1D21;
+	border-radius:var(--theme-border-radius)!important;
 }
 
 .wc-block-components-button,
 .wc-block-components-checkout-return-to-cart-button{
-	border-radius:var(--button-border-radius)
+	border-radius:var(--button-border-radius);
+	color:white!important;
 }
 
+.wc-block-components-checkout-return-to-cart-button{
+	background:#727272;
+	padding: 15px 30px;
+	padding-left: 45px !important;
+	align-items: center;
+    display: inline-flex;
+    height: auto;
+    justify-content: center;
+    position: relative;
+    text-align: center;
+	color:white!important;
+
+	svg{
+		left:18px!important;
+	}
+}
+
+.wc-block-components-button__text{
+}
+
+.wc-block-components-address-card__address-section{
+	color:white!important;
+}
+
+.wc-block-checkout__terms {
+	opacity:0.5;
+}
+
+#wc-block-components-totals-coupon__input-coupon{
+	background:none!important;
+	color:white;
+}
+
+.wc-block-components-checkout-order-summary__title-text,
+.wc-block-components-totals-item,
+.wc-block-components-panel__button{
+	text-transform:uppercase;
+}
+
+.wp-block-woocommerce-checkout-order-summary-block .wc-block-components-checkout-order-summary__title {
+
+	margin-top: 0!important;
+}
+
+.wc-block-components-order-summary .wc-block-components-order-summary-item__image {
+	--product-cart-image-width:100px;
+	width: var(--product-cart-image-width)!important;
+
+	& > img{
+
+		width: var(--product-cart-image-width)!important;
+		max-width: var(--product-cart-image-width)!important;
+	}
+}
+
+
+@media screen and (min-width: 700px) {
+    .wc-block-components-sidebar .slot-wrapper .wc-block-components-panel,.wc-block-components-sidebar .wc-block-components-panel,.wc-block-components-sidebar .wc-block-components-totals-coupon,.wc-block-components-sidebar .wc-block-components-totals-item,
+	.wc-block-components-order-summary,
+	.wp-block-woocommerce-checkout-order-summary-block .wc-block-components-checkout-order-summary__title .wc-block-components-checkout-order-summary__title-text{
+	margin:0!important;
+        padding-left: 40px!important;
+        padding-right: 40px!important;
+    }
+}

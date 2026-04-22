@@ -9,4 +9,4 @@ function emotions_enqueue_scripts() {
 
 	wp_enqueue_script( 'emotions-app', get_stylesheet_directory_uri() . '/build/app.js', array( 'wp-element' ), $version, true );
 }
-add_action( 'wp_enqueue_scripts', 'emotions_enqueue_scripts' );
+add_action( 'wp_enqueue_scripts', 'emotions_enqueue_scripts', 999 );
