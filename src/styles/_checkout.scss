@@ -1,0 +1,32 @@
+body.woocommerce-checkout{
+	background: linear-gradient(180deg, #2e1208 0%, #110604 60%, #0a0402 100%);
+}
+
+.wp-block-woocommerce-checkout{
+	margin: 0 auto;
+}
+
+.wp-block-woocommerce-checkout-fields-block{
+
+	background:rgba(255,255,255,.5);
+	border:1px solid rgba(255,255,255,1);
+	border-radius:var(--theme-border-radius);
+	padding:50px;
+
+	input,
+	textarea{
+		border:1px solid #FF3300;
+		background-color:transparent!important;
+	}
+}
+
+.wc-block-components-sidebar-layout .wc-block-components-main,
+.wc-block-components-sidebar{
+	width:50%;
+}
+
+.wc-block-components-button,
+.wc-block-components-checkout-return-to-cart-button{
+	border-radius:var(--button-border-radius)
+}
+

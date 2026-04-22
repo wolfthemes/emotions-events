@@ -1,0 +1,56 @@
+# Ignore zip dump
+**/THEMES/ALL
+**/ALL
+
+# utils
+vendor
+wpcs
+.env
+
+# ignore generated css files
+/assets/css/main.css
+/assets/css/main.min.css
+/rtl.css
+
+# Ignore sass cache
+**/.sass-cache
+
+# Ignore grunt stuff
+node_modules
+.grunt
+tmp
+
+# Ignore auto generated stuff and demo content
+changelog
+tf/*.psd
+build/
+dist/
+pack/
+
+# Ignore bower components
+**/bower_components
+
+# php storm
+*.idea
+
+# Sublime Text 2
+*.sublime-project
+*.sublime-workspace
+
+# PSD
+*.psd
+
+# Windows image file caches
+Thumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Mac crap
+.DS_Store
+
+# Repo
+OnScrollPathAnimations
+defo-effect
+.phpunit.cache/
+vendor/
