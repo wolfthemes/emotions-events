@@ -24,3 +24,4 @@ add_filter( 'aurenza_loading_text', function( $text ) {
 
     return 'Nimm einen tiefen Atemzug';
 } );
+
