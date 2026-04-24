@@ -332,7 +332,7 @@ body.woocommerce-checkout{
 .qty-counter-controls button {
     width: 36px;
     height: 36px;
-    border-radius: 50%;
+    border-radius: var(--theme-border-radius) ;
     border: none;
     cursor: pointer;
     font-size: 18px;
