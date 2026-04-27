@@ -38,10 +38,12 @@ $date_str = $product ? $sasoEventtickets->getTicketHandler()->displayTicketDateA
             </h2>
 
             <div class="emotions-order-received__message">
-                <p class="emotions-order-received__highlight">
+				<p class="emotions-order-received__intro">
+                <span class="emotions-order-received__highlight">
                     <?php esc_html_e( 'Danke, dass du dir Zeit für dich nimmst.', 'emotions' ); ?>
+                </span>
                     <?php esc_html_e( 'Für dein Innenleben. Für deine Emotionen.', 'emotions' ); ?>
-                </p>
+				</p>
                 <p><?php esc_html_e( 'Mit deinem Ticketkauf unterstützt du nicht nur dich selbst, sondern auch ein österreichisches Herzensunternehmen mit einer großen Vision und dem Wunsch, echte Begegnung und spürbare Momente zu schaffen. Danke, dass du das möglich machst.', 'emotions' ); ?></p>
                 <p>
                     <?php esc_html_e( 'Bis wir uns sehen: Wenn du magst, hör schon jetzt in unsere', 'emotions' ); ?>
@@ -62,7 +64,8 @@ $date_str = $product ? $sasoEventtickets->getTicketHandler()->displayTicketDateA
                 <?php esc_html_e( 'an dich geschickt.', 'emotions' ); ?>
             </p>
 
-            <p><?php esc_html_e( 'Falls du bei der E-Mail-Adresse vertippt hast, kein Stress — du kannst dein Ticket unten direkt herunterladen und abspeichern.', 'emotions' ); ?></p>
+            <p class="emotions-order-received__outro">
+				<?php esc_html_e( 'Falls du bei der E-Mail-Adresse vertippt hast, kein Stress — du kannst dein Ticket unten direkt herunterladen und abspeichern.', 'emotions' ); ?></p>
 
             <?php if ( $pdf_url ) : ?>
             <a href="<?php echo esc_url( $pdf_url ); ?>" target="_blank" class="emotions-order-received__btn">
@@ -71,7 +74,9 @@ $date_str = $product ? $sasoEventtickets->getTicketHandler()->displayTicketDateA
             </a>
             <?php endif; ?>
 
-            <div class="emotions-order-received__pattern"></div>
+			<div class="emotions-order-received__pattern">
+				<img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/img/logo-pattern.png' ); ?>">
+			</div>
 
         </div>
 
@@ -124,6 +129,7 @@ $date_str = $product ? $sasoEventtickets->getTicketHandler()->displayTicketDateA
                     <span><?php esc_html_e( 'Gesamtsumme', 'emotions' ); ?></span>
                     <span><?php echo wp_kses_post( $order->get_formatted_order_total() ); ?></span>
                 </div>
+
             </div>
 
         </div>
