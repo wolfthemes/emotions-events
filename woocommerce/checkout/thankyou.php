@@ -1,0 +1,113 @@
+<?php
+defined( 'ABSPATH' ) || exit;
+
+if ( ! $order ) return;
+
+$order_items = $order->get_items();
+$first_item  = reset( $order_items );
+$product     = $first_item ? $first_item->get_product() : null;
+?>
+
+<div class="emotions-order-received">
+
+    <?php do_action( 'woocommerce_before_thankyou', $order->get_id() ); ?>
+
+    <div class="emotions-order-received__inner">
+
+        <!-- LEFT PANEL -->
+        <div class="emotions-order-received__left">
+            <h2 class="emotions-order-received__title">
+                <?php esc_html_e( 'Wie schön, dass du dabei bist!', 'emotions' ); ?>
+            </h2>
+
+            <div class="emotions-order-received__message">
+                <p class="emotions-order-received__highlight">
+                    <?php esc_html_e( 'Danke, dass du dir Zeit für dich nimmst.', 'emotions' ); ?>
+                    <?php esc_html_e( 'Für dein Innenleben. Für deine Emotionen.', 'emotions' ); ?>
+                </p>
+                <p>
+                    <?php esc_html_e( 'Mit deinem Ticketkauf unterstützt du nicht nur dich selbst, sondern auch ein österreichisches Herzensunternehmen mit einer großen Vision und dem Wunsch, echte Begegnung und spürbare Momente zu schaffen. Danke, dass du das möglich machst.', 'emotions' ); ?>
+                </p>
+                <p>
+                    <?php esc_html_e( 'Bis wir uns sehen: Wenn du magst, hör schon jetzt in unsere', 'emotions' ); ?>
+                    <a href="#" class="emotions-order-received__link">Spotify Playlist</a>
+                    <?php esc_html_e( 'rein und stimm dich auf das Event ein.', 'emotions' ); ?>
+                </p>
+            </div>
+
+            <p class="emotions-order-received__confirmation">
+                <?php esc_html_e( 'Deine Bestätigung und', 'emotions' ); ?>
+                <span class="emotions-order-received__link"><?php esc_html_e( 'dein Ticket', 'emotions' ); ?></span>
+                <?php esc_html_e( 'wurden bereits per', 'emotions' ); ?>
+                <span class="emotions-order-received__link"><?php esc_html_e( 'E-Mail', 'emotions' ); ?></span>
+                <?php esc_html_e( 'an dich geschickt.', 'emotions' ); ?>
+            </p>
+
+            <p>
+                <?php esc_html_e( 'Falls du bei der E-Mail-Adresse vertippt hast, kein Stress — du kannst dein Ticket unten direkt herunterladen und abspeichern.', 'emotions' ); ?>
+            </p>
+
+            <a href="#" class="emotions-order-received__btn">
+                <?php esc_html_e( 'Ticket als PDF herunterladen', 'emotions' ); ?>
+                <span>↓</span>
+            </a>
+
+            <div class="emotions-order-received__pattern"></div>
+        </div>
+
+        <!-- RIGHT PANEL -->
+        <div class="emotions-order-received__right">
+            <h3 class="emotions-order-received__summary-title">
+                <?php esc_html_e( 'Bestellübersicht', 'emotions' ); ?>
+            </h3>
+
+            <?php if ( $product ) : ?>
+            <div class="emotions-order-received__product">
+                <div class="emotions-order-received__product-image">
+                    <?php echo $product->get_image( 'medium' ); ?>
+                    <span class="emotions-order-received__product-qty">
+                        <?php echo esc_html( $first_item->get_quantity() ); ?>
+                    </span>
+                </div>
+                <div class="emotions-order-received__product-info">
+                    <span class="emotions-order-received__product-date">
+                        <?php echo esc_html( get_post_meta( $product->get_id(), 'event_date', true ) ); ?>
+                    </span>
+                    <h4><?php echo esc_html( $first_item->get_name() ); ?></h4>
+                    <span class="emotions-order-received__product-type">
+                        <?php echo esc_html( $product->get_attribute( 'ticket-type' ) ); ?>
+                    </span>
+                </div>
+            </div>
+            <?php endif; ?>
+
+            <div class="emotions-order-received__details">
+                <div class="emotions-order-received__detail-row">
+                    <span><?php esc_html_e( 'Vor- & Nachname', 'emotions' ); ?></span>
+                    <span><?php echo esc_html( $order->get_billing_first_name() . ' ' . $order->get_billing_last_name() ); ?></span>
+                </div>
+                <div class="emotions-order-received__detail-row">
+                    <span><?php esc_html_e( 'E-Mail Adresse', 'emotions' ); ?></span>
+                    <span><?php echo esc_html( $order->get_billing_email() ); ?></span>
+                </div>
+                <div class="emotions-order-received__detail-row">
+                    <span><?php esc_html_e( 'Ticket- & Rechnungsnummer', 'emotions' ); ?></span>
+                    <span><?php echo esc_html( $order->get_order_number() ); ?></span>
+                </div>
+                <div class="emotions-order-received__detail-row">
+                    <span><?php esc_html_e( 'Menge', 'emotions' ); ?></span>
+                    <span><?php echo esc_html( $order->get_item_count() ); ?></span>
+                </div>
+                <div class="emotions-order-received__detail-row">
+                    <span><?php esc_html_e( 'Zahlungsmethode', 'emotions' ); ?></span>
+                    <span><?php echo esc_html( $order->get_payment_method_title() ); ?></span>
+                </div>
+                <div class="emotions-order-received__detail-row emotions-order-received__detail-row--total">
+                    <span><?php esc_html_e( 'Gesamtsumme', 'emotions' ); ?></span>
+                    <span><?php echo wp_kses_post( $order->get_formatted_order_total() ); ?></span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

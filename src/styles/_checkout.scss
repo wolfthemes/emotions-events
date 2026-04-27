@@ -15,7 +15,7 @@ body.woocommerce-checkout{
 
 	.content-inner{
 		background-color:transparent;
-		background: linear-gradient(0deg, #28292D, #772C1B);
+		background: linear-gradient(0deg, #28292D, var(--emotion-color));
 
 		.content-wrapper {
 			padding-top:var(--desktop-menu-height);

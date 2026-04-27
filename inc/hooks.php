@@ -20,19 +20,31 @@ function emotions_output_animated_text() {
 		return;
 	}
 
-	if ( ! is_checkout() ) {
-		return;
-	}
+	if ( is_wc_endpoint_url( 'order-received' ) ) {
+        echo wolf_core_marquee_text(
+            array(
+                'text'          => 'DANKE &bull; DANKE &bull; DANKE &bull;',
+                'direction'     => 'right',
+                'marquee_speed' => '80',
+            )
+        );
+        return;
+    }
 
-	echo wolf_core_marquee_text(
-		array(
-			'text' => 'TICKET &bull; TICKET &bull; TICKET &bull;',
-			'direction' => 'right',
-			'marquee_speed' => '80',
-		)
-	);
+	if ( is_checkout() ) {
+
+		echo wolf_core_marquee_text(
+			array(
+				'text' => 'TICKET &bull; TICKET &bull; TICKET &bull;',
+				'direction' => 'right',
+				'marquee_speed' => '80',
+			)
+		);
+	}
 }
 add_action( 'aurenza_content_start', 'emotions_output_animated_text', 99 );
+
+
 
 add_filter('woocommerce_checkout_cart_item_quantity', function($quantity, $cart_item) {
     $product = $cart_item['data'];
