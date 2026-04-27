@@ -1,11 +1,27 @@
 <?php
 defined( 'ABSPATH' ) || exit;
 
-if ( ! $order ) return;
+global $sasoEventtickets;
 
 $order_items = $order->get_items();
 $first_item  = reset( $order_items );
 $product     = $first_item ? $first_item->get_product() : null;
+
+$ticket_id  = '';
+foreach ( $order->get_items() as $item ) {
+    $ticket_id = $item->get_meta( '_saso_eventtickets_public_ticket_ids' );
+    if ( $ticket_id ) break;
+}
+
+$ticket_base_url = WP_PLUGIN_URL . '/event-tickets-with-ticket-scanner/ticket/';
+$ticket_url      = $ticket_id ? $ticket_base_url . $ticket_id : '';
+$pdf_url         = $ticket_id ? $ticket_base_url . $ticket_id . '?pdf' : '';
+
+$date_str = $product ? $sasoEventtickets->getTicketHandler()->displayTicketDateAsString(
+    $product->get_id(),
+    get_option( 'date_format' ),
+    get_option( 'time_format' )
+) : '';
 ?>
 
 <div class="emotions-order-received">
@@ -16,6 +32,7 @@ $product     = $first_item ? $first_item->get_product() : null;
 
         <!-- LEFT PANEL -->
         <div class="emotions-order-received__left">
+
             <h2 class="emotions-order-received__title">
                 <?php esc_html_e( 'Wie schön, dass du dabei bist!', 'emotions' ); ?>
             </h2>
@@ -25,9 +42,7 @@ $product     = $first_item ? $first_item->get_product() : null;
                     <?php esc_html_e( 'Danke, dass du dir Zeit für dich nimmst.', 'emotions' ); ?>
                     <?php esc_html_e( 'Für dein Innenleben. Für deine Emotionen.', 'emotions' ); ?>
                 </p>
-                <p>
-                    <?php esc_html_e( 'Mit deinem Ticketkauf unterstützt du nicht nur dich selbst, sondern auch ein österreichisches Herzensunternehmen mit einer großen Vision und dem Wunsch, echte Begegnung und spürbare Momente zu schaffen. Danke, dass du das möglich machst.', 'emotions' ); ?>
-                </p>
+                <p><?php esc_html_e( 'Mit deinem Ticketkauf unterstützt du nicht nur dich selbst, sondern auch ein österreichisches Herzensunternehmen mit einer großen Vision und dem Wunsch, echte Begegnung und spürbare Momente zu schaffen. Danke, dass du das möglich machst.', 'emotions' ); ?></p>
                 <p>
                     <?php esc_html_e( 'Bis wir uns sehen: Wenn du magst, hör schon jetzt in unsere', 'emotions' ); ?>
                     <a href="#" class="emotions-order-received__link">Spotify Playlist</a>
@@ -37,26 +52,32 @@ $product     = $first_item ? $first_item->get_product() : null;
 
             <p class="emotions-order-received__confirmation">
                 <?php esc_html_e( 'Deine Bestätigung und', 'emotions' ); ?>
-                <span class="emotions-order-received__link"><?php esc_html_e( 'dein Ticket', 'emotions' ); ?></span>
+                <?php if ( $ticket_url ) : ?>
+                    <a href="<?php echo esc_url( $ticket_url ); ?>" target="_blank" class="emotions-order-received__link"><?php esc_html_e( 'dein Ticket', 'emotions' ); ?></a>
+                <?php else : ?>
+                    <span class="emotions-order-received__link"><?php esc_html_e( 'dein Ticket', 'emotions' ); ?></span>
+                <?php endif; ?>
                 <?php esc_html_e( 'wurden bereits per', 'emotions' ); ?>
                 <span class="emotions-order-received__link"><?php esc_html_e( 'E-Mail', 'emotions' ); ?></span>
                 <?php esc_html_e( 'an dich geschickt.', 'emotions' ); ?>
             </p>
 
-            <p>
-                <?php esc_html_e( 'Falls du bei der E-Mail-Adresse vertippt hast, kein Stress — du kannst dein Ticket unten direkt herunterladen und abspeichern.', 'emotions' ); ?>
-            </p>
+            <p><?php esc_html_e( 'Falls du bei der E-Mail-Adresse vertippt hast, kein Stress — du kannst dein Ticket unten direkt herunterladen und abspeichern.', 'emotions' ); ?></p>
 
-            <a href="#" class="emotions-order-received__btn">
+            <?php if ( $pdf_url ) : ?>
+            <a href="<?php echo esc_url( $pdf_url ); ?>" target="_blank" class="emotions-order-received__btn">
                 <?php esc_html_e( 'Ticket als PDF herunterladen', 'emotions' ); ?>
                 <span>↓</span>
             </a>
+            <?php endif; ?>
 
             <div class="emotions-order-received__pattern"></div>
+
         </div>
 
         <!-- RIGHT PANEL -->
         <div class="emotions-order-received__right">
+
             <h3 class="emotions-order-received__summary-title">
                 <?php esc_html_e( 'Bestellübersicht', 'emotions' ); ?>
             </h3>
@@ -70,13 +91,10 @@ $product     = $first_item ? $first_item->get_product() : null;
                     </span>
                 </div>
                 <div class="emotions-order-received__product-info">
-                    <span class="emotions-order-received__product-date">
-                        <?php echo esc_html( get_post_meta( $product->get_id(), 'event_date', true ) ); ?>
-                    </span>
+                    <?php if ( $date_str ) : ?>
+                    <span class="emotions-order-received__product-date"><?php echo esc_html( $date_str ); ?></span>
+                    <?php endif; ?>
                     <h4><?php echo esc_html( $first_item->get_name() ); ?></h4>
-                    <span class="emotions-order-received__product-type">
-                        <?php echo esc_html( $product->get_attribute( 'ticket-type' ) ); ?>
-                    </span>
                 </div>
             </div>
             <?php endif; ?>
@@ -107,6 +125,7 @@ $product     = $first_item ? $first_item->get_product() : null;
                     <span><?php echo wp_kses_post( $order->get_formatted_order_total() ); ?></span>
                 </div>
             </div>
+
         </div>
 
     </div>
