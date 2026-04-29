@@ -22,6 +22,6 @@ add_filter( 'wolf_core_element_list', 'wolftheme_add_available_wvc_elements', 44
 
 add_filter( 'aurenza_loading_text', function( $text ) {
 
-    return 'Nimm einen tiefen Atemzug';
+	return 'Nimm einen tiefen Atemzug';
 } );
 

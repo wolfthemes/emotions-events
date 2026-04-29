@@ -21,15 +21,15 @@ function emotions_output_animated_text() {
 	}
 
 	if ( is_wc_endpoint_url( 'order-received' ) ) {
-        echo wolf_core_marquee_text(
-            array(
-                'text'          => 'DANKE &bull; DANKE &bull; DANKE &bull;',
-                'direction'     => 'right',
-                'marquee_speed' => '80',
-            )
-        );
-        return;
-    }
+		echo wolf_core_marquee_text(
+			array(
+				'text'          => 'DANKE &bull; DANKE &bull; DANKE &bull;',
+				'direction'     => 'right',
+				'marquee_speed' => '80',
+			)
+		);
+		return;
+	}
 
 	if ( is_checkout() ) {
 
@@ -46,13 +46,13 @@ add_action( 'aurenza_content_start', 'emotions_output_animated_text', 99 );
 
 
 
-add_filter('woocommerce_checkout_cart_item_quantity', function($quantity, $cart_item) {
-    $product = $cart_item['data'];
-    return sprintf(
-        '<input type="number" class="qty-input" value="%s" min="1" max="%s" data-cart-key="%s">',
-        $cart_item['quantity'],
-        $product->get_stock_quantity() ?: 99,
-        $cart_item['key']
-    );
+add_filter('woocommerce_checkout_cart_item_quantity', function( $quantity, $cart_item) {
+	$product = $cart_item['data'];
+	return sprintf(
+		'<input type="number" class="qty-input" value="%s" min="1" max="%s" data-cart-key="%s">',
+		$cart_item['quantity'],
+		$product->get_stock_quantity() ?: 99,
+		$cart_item['key']
+	);
 }, 10, 2);
 
