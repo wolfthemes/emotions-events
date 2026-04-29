@@ -1,4 +1,5 @@
 body.woocommerce-cart,
+body.woocommerce-order-received,
 body.woocommerce-checkout{
 
 	.site-header{
@@ -11,7 +12,7 @@ body.woocommerce-checkout{
 	.wolf-core-marquee-text{
 		color:var(--emotion-color);
 		font-weight:700;
-		font-size: 72px;
+		font-size: 116px;
 	}
 
 	.content-inner{
@@ -48,7 +49,7 @@ body.woocommerce-checkout{
 .wp-block-woocommerce-checkout-fields-block{
 
 	background:rgba(255,255,255,.2)!important;
-	border:1px solid rgba(255,255,255,.5)!important;
+	border:2px solid rgba(255,255,255,.7)!important;
 	border-radius:var(--theme-border-radius)!important;
 	padding:40px;
 	padding-right:40px!important;
@@ -288,7 +289,8 @@ body.woocommerce-checkout{
 .wc-block-components-checkout-order-summary__title-text,
 .wc-block-components-title.wc-block-components-title,
 .wc-block-components-totals-footer-item {
-	font-weight:700!important;
+	font-weight:600!important;
+    letter-spacing:8%;
 }
 
 .wc-block-components-checkbox__input {
