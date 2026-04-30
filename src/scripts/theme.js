@@ -43,11 +43,45 @@ class Emotions {
 		cartItemsBlock.after(row);
 	}
 
+	checkoutEventDate() {
+		if ( ! window.emotionsCheckout?.eventData ) return;
+
+		console.log( window.emotionsCheckout.eventData )
+
+		const productId = Object.keys( window.emotionsCheckout.eventData )[0];
+		const date = window.emotionsCheckout.eventData[ productId ]?.date;
+
+		console.log( date )
+
+		if ( ! date ) return;
+
+		const inject = () => {
+			const items = document.querySelectorAll( '.wc-block-components-order-summary-item:not([data-date-injected])' );
+			console.log( 'items found:', items.length );
+			items.forEach( item => {
+				const nameEl = item.querySelector( '.wc-block-components-product-name' );
+
+				if ( ! nameEl ) return;
+
+				const dateEl = document.createElement( 'span' );
+				dateEl.className = 'emotions-checkout__event-date';
+				dateEl.textContent = date;
+				nameEl.insertAdjacentElement( 'beforebegin', dateEl );
+				item.dataset.dateInjected = true;
+			});
+		};
+
+		const observer = new MutationObserver( inject );
+		observer.observe( document.body, { childList: true, subtree: true } );
+		inject(); // catch already-rendered items
+	}
+
 	/**
 	 * Functions to fire once the page is loaded
 	 */
 	pageLoaded() {
 		if (document.body.classList.contains('woocommerce-checkout')) {
+			this.checkoutEventDate();
         	this.initQtyCounter();
     	}
 	}

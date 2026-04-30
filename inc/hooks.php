@@ -8,6 +8,27 @@ function emotions_enqueue_scripts() {
 	wp_enqueue_style( 'emotions-app', get_stylesheet_directory_uri() . '/build/styles.css', array(), $version );
 
 	wp_enqueue_script( 'emotions-app', get_stylesheet_directory_uri() . '/build/app.js', array( 'wp-element' ), $version, true );
+
+	if ( is_checkout() ) {
+
+		$cart_event_data = [];
+		foreach ( WC()->cart->get_cart() as $cart_item ) {
+			$product_id = $cart_item['product_id'];
+			global $sasoEventtickets;
+			$date_str = $sasoEventtickets->getTicketHandler()->displayTicketDateAsString(
+				$product_id,
+				get_option( 'date_format' ),
+				get_option( 'time_format' )
+			);
+			$cart_event_data[ $product_id ] = [
+				'date' => $date_str,
+			];
+		}
+
+		wp_localize_script( 'emotions-app', 'emotionsCheckout', [
+			'eventData' => $cart_event_data,
+		]);
+	}
 }
 add_action( 'wp_enqueue_scripts', 'emotions_enqueue_scripts', 999 );
 
