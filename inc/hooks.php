@@ -14,14 +14,9 @@ function emotions_enqueue_scripts() {
 		$cart_event_data = [];
 		foreach ( WC()->cart->get_cart() as $cart_item ) {
 			$product_id = $cart_item['product_id'];
-			global $sasoEventtickets;
-			$date_str = $sasoEventtickets->getTicketHandler()->displayTicketDateAsString(
-				$product_id,
-				get_option( 'date_format' ),
-				get_option( 'time_format' )
-			);
+
 			$cart_event_data[ $product_id ] = [
-				'date' => $date_str,
+				'date' => emotions_get_event_date_string( $product_id ),
 			];
 		}
 

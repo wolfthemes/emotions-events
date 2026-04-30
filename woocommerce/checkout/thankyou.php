@@ -19,11 +19,7 @@ $ticket_base_url = WP_PLUGIN_URL . '/event-tickets-with-ticket-scanner/ticket/';
 $ticket_url      = $ticket_id ? $ticket_base_url . $ticket_id : '';
 $pdf_url         = $ticket_id ? $ticket_base_url . $ticket_id . '?pdf' : '';
 
-$date_str = $product ? $sasoEventtickets->getTicketHandler()->displayTicketDateAsString(
-	$product->get_id(),
-	get_option( 'date_format' ),
-	get_option( 'time_format' )
-) : '';
+$date_str = emotions_get_event_date_string( $product->get_id() );
 ?>
 
 <div class="emotions-order-received">

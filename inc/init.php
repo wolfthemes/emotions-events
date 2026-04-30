@@ -2,5 +2,6 @@
 
 defined( 'ABSPATH' ) || exit;
 
+require_once  'helpers.php' ;
 require_once  'hooks.php' ;
 require_once  'filters.php' ;
