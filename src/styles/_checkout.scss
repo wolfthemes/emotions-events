@@ -43,7 +43,13 @@ body.woocommerce-checkout{
 
 .wc-block-components-totals-wrapper {
 	border-color:var(--emotion-border-color)!important;
+    padding: 25px 0!important;
+    font-size: 16px;
 	// border-top: 1px solid var(--emotion-border-color)!important;
+}
+
+.wc-block-components-totals-wrapper:empty, .wc-block-components-totals-wrapper:has(>:only-child:empty) {
+  padding:0!important;
 }
 
 .wp-block-woocommerce-checkout-fields-block{
@@ -93,9 +99,9 @@ body.woocommerce-checkout{
 
 // .wc-block-components-totals-wrapper,
 .wp-block-woocommerce-checkout-order-summary-cart-items-block {
-	border-top:1px solid rgba(255,255,255,.5)!important;
-	padding-top:20px!important;
-	padding-bottom:20px!important;
+	border-top:1px solid var(--emotion-border-color)!important;
+	padding-top:30px!important;
+	padding-bottom:30px!important;
 }
 
 .wp-block-woocommerce-checkout-order-summary-block{
@@ -135,7 +141,7 @@ body.woocommerce-checkout{
 .woocommerce-checkout .wc-block-components-sidebar{
 	padding:0;
 	margin-left:1%;
-	background-color:#1C1D21;
+	background-color:var(--emotion-dark-bg);
 	border-color:var(--emotion-border-color);
 	border-radius:var(--theme-border-radius)!important;
 	align-self: stretch;
@@ -318,53 +324,3 @@ body.woocommerce-checkout{
 	margin-top:0!important;
 }
 
-.qty-counter-row {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	padding: 20px 40px;
-	border-top: 1px solid var(--emotion-border-color);
-}
-
-.qty-counter-label {
-	font-size: 14px;
-	letter-spacing: 0.1em;
-	text-transform: uppercase;
-	color: #fff;
-}
-
-.qty-counter-controls {
-	display: flex;
-	align-items: center;
-	gap: 12px;
-}
-
-.qty-counter-controls .qty-value {
-	color: #fff;
-	font-size: 16px;
-	min-width: 20px;
-	text-align: center;
-}
-
-.qty-counter-controls button {
-	width: 36px;
-	height: 36px;
-	border-radius: var(--theme-border-radius) ;
-	border: none;
-	cursor: pointer;
-	font-size: 18px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	line-height: 1;
-}
-
-.qty-minus {
-	background: #3a3a3a;
-	color: #fff;
-}
-
-.qty-plus {
-	background: var(--emotion-color);
-	color: #fff;
-}
