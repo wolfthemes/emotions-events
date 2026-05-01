@@ -145,12 +145,12 @@
 	&__product-image {
 		position: relative;
 		flex-shrink: 0;
-		width: 100px;
+		width: 200px;
 
 		img {
-			width: 100px;
-			height: 100px;
-			object-fit: cover;
+			width: 200px;
+			height: auto;
+			// object-fit: cover;
 			border-radius: var(--theme-border-radius);
 			display: block;
 		}

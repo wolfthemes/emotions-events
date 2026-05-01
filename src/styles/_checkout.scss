@@ -204,13 +204,13 @@ body.woocommerce-checkout{
 }
 
 .wc-block-components-order-summary .wc-block-components-order-summary-item__image {
-	--product-cart-image-width:100px;
+	--product-cart-image-width:200px;
 	width: var(--product-cart-image-width)!important;
 
 	& > img{
 
 		width: var(--product-cart-image-width)!important;
-		max-width: var(--product-cart-iage-width)!important;
+		max-width: var(--product-cart-image-width)!important;
 	}
 }
 
@@ -253,7 +253,6 @@ body.woocommerce-checkout{
 }
 
 
-@media screen and (min-width: 700px) {
 .wc-block-cart__submit-container,
 	.wc-block-components-sidebar .slot-wrapper .wc-block-components-panel,.wc-block-components-sidebar .wc-block-components-panel,.wc-block-components-sidebar .wc-block-components-totals-coupon,.wc-block-components-sidebar .wc-block-components-totals-item,
 	.wc-block-components-order-summary,
@@ -262,7 +261,7 @@ body.woocommerce-checkout{
 		padding-left: 40px!important;
 		padding-right: 40px!important;
 	}
-}
+
 
 .wc-block-cart__totals-title{
 	padding-left:40px!important;
@@ -332,3 +331,38 @@ body.woocommerce-checkout{
 	margin-top:0!important;
 }
 
+@media screen and (max-width: 1400px) {
+  .wc-block-components-order-summary .wc-block-components-order-summary-item__image > img {
+      --product-cart-image-width: 100px;
+  }
+
+}
+
+@media screen and (max-width: 900px) {
+    .wc-block-components-sidebar-layout .wc-block-components-main, .wc-block-components-sidebar {
+        width: 100% !important;
+        margin-left: 0!important;
+        margin-bottom: 10px!important;
+    }
+
+}
+
+@media screen and (max-width: 699px) {
+    .wc-block-components-sidebar-layout {
+        flex-direction: column;
+        margin: 0 auto 16px
+    }
+
+    .wc-block-components-sidebar-layout .wc-block-components-main{
+        padding:40px!important;
+        width: 100%
+    }
+
+    .wp-block-woocommerce-checkout-order-summary-block .wc-block-components-checkout-order-summary__title .wc-block-components-checkout-order-summary__title-text {
+      // padding-left: 0px !important;
+    }
+
+    .woocommerce-checkout .wc-block-components-sidebar {
+      display:none;
+    }
+}
