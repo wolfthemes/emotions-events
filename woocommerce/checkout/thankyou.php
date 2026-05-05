@@ -135,7 +135,7 @@ $date_str = emotions_get_event_date_string( $product->get_id() );
 				</div>
 				<div class="emotions-order-received__detail-row">
 					<span><?php esc_html_e( 'Zahlungsmethode', 'emotions' ); ?></span>
-					<span><?php echo esc_html( $order->get_payment_method_title() ); ?></span>
+					<span><?php echo  $order->get_payment_method_title() ; ?></span>
 				</div>
 				<div class="emotions-order-received__detail-row emotions-order-received__detail-row--total">
 					<span><?php esc_html_e( 'Gesamtsumme', 'emotions' ); ?></span>
