@@ -16,7 +16,8 @@ break;
 }
 
 $ticket_base_url = WP_PLUGIN_URL . '/event-tickets-with-ticket-scanner/ticket/';
-$ticket_url      = $ticket_id ? $ticket_base_url . $ticket_id : '';
+/* $ticket_url      = $ticket_id ? $ticket_base_url . $ticket_id : ''; */
+$ticket_url = false;
 $pdf_url         = $ticket_id ? $ticket_base_url . $ticket_id . '?pdf' : '';
 
 $date_str = emotions_get_event_date_string( $product->get_id() );
@@ -52,13 +53,13 @@ $date_str = emotions_get_event_date_string( $product->get_id() );
 
 			<p class="emotions-order-received__confirmation">
 				<?php esc_html_e( 'Deine Bestätigung und', 'emotions' ); ?>
-				<?php if ( $ticket_url ) : ?>
-					<a href="<?php echo esc_url( $ticket_url ); ?>" target="_blank" class="emotions-order-received__link"><?php esc_html_e( 'dein Ticket', 'emotions' ); ?></a>
+				<?php if ( $pdf_url ) : ?>
+					<a href="<?php echo esc_url( $pdf_url ); ?>" target="_blank" class="emotions-order-received__link"><?php esc_html_e( 'dein Ticket', 'emotions' ); ?></a>
 				<?php else : ?>
 					<span class="emotions-order-received__link"><?php esc_html_e( 'dein Ticket', 'emotions' ); ?></span>
 				<?php endif; ?>
-				<?php esc_html_e( 'wurden bereits per', 'emotions' ); ?>
-				<span class="emotions-order-received__link"><?php esc_html_e( 'E-Mail', 'emotions' ); ?></span>
+				<?php esc_html_e( 'wurden bereits', 'emotions' ); ?>
+				<span class="emotions-order-received__link"><?php esc_html_e( 'per E-Mail', 'emotions' ); ?></span>
 				<?php esc_html_e( 'an dich geschickt.', 'emotions' ); ?>
 			</p>
 
