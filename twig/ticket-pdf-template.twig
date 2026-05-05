@@ -1,0 +1,218 @@
+{% apply spaceless %}{% autoescape false %}
+
+{%- if forPDFOutput -%}
+
+{%- set orange = '#FF4B06' -%}
+{%- set ink = '#111111' -%}
+{%- set pattern_url = 'http://sandbox.wolfthemes.com/wp-content/themes/emotions/assets/img/ticket-pattern.png' -%}
+
+<style>
+  body, table, tr, td, p, span, strong {
+    font-family: helvetica, arial, sans-serif;
+    color: {{ ink }};
+    font-size: 9pt;
+  }
+  table.ticket_container { width: 640px; }
+  table.content_grid { width: 640px; }
+  table.qr_grid { width: 560px; }
+</style>
+
+{#
+  FULL-WIDTH OUTER TABLE: this is the TCPDF-safe centering wrapper.
+  Do not put align="center" on the inner content cells, otherwise text may inherit centering.
+#}
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr>
+    <td width="100%" align="center">
+
+      <table class="ticket_container" width="100%" style="width:100%;" align="center" cellpadding="0" cellspacing="0" border="0">
+        <tr><td align="left" height="10"></td></tr>
+
+        {# Event title / date #}
+        <tr>
+          <td align="center">
+            <span style="font-size:15pt; font-weight:500; line-height:1; color:{{ orange }}; letter-spacing:2pt; text-transform:uppercase;">{{ PRODUCT.get_name|escape }}</span>
+          </td>
+        </tr>
+        <tr><td height="3"></td></tr>
+        <tr>
+          <td align="center">
+            {%- if not OPTIONS.wcTicketHideDateOnPDF and TICKET.start_date is not empty -%}
+              <span style="font-size:9.5pt; font-weight:500; color:{{ orange }}; letter-spacing:0.7pt; text-transform:uppercase;">{{ TICKET.start_date|date('d.m.Y') }} | {{ TICKET.start_date|date('H:i') }} UHR{%- if TICKET.location is not empty %} | {{ TICKET.location|escape|upper }}{%- endif %}</span>
+            {%- elseif TICKET.location is not empty -%}
+              <span style="font-size:9.5pt; font-weight:500; color:{{ orange }}; letter-spacing:0.7pt; text-transform:uppercase;">{{ TICKET.location|escape|upper }}</span>
+            {%- endif -%}
+          </td>
+        </tr>
+
+        <tr><td height="10"></td></tr>
+
+        <tr>
+          <td align="center">
+            <table class="qr_grid" width="100%" align="center" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td align="center" valign="middle">
+                  {QRCODE_INLINE}
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <tr><td height="14"></td></tr>
+
+        {# Customer / payment #}
+        <tr>
+          <td align="left">
+            <table class="content_grid" width="640" style="width:640px;" align="center" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td width="260" align="left" valign="top">
+                  {%- if not OPTIONS.wcTicketDontDisplayCustomer -%}
+                    <div style="font-size:9pt; font-weight:500; line-height:0.9; color:{{ orange }}; letter-spacing:0.8pt; text-transform:uppercase;">KUNDE:IN</div>
+                    <span style="margin-top:-10px;font-size:8.5pt; line-height:1.05;">
+                      <strong>{{ ORDER.get_billing_first_name|escape }} {{ ORDER.get_billing_last_name|escape }}</strong><br>
+                      {%- if ORDER.get_billing_email is not empty -%}<strong>{{ ORDER.get_billing_email|escape }}</strong><br><br>{%- endif -%}
+                      {%- if ORDER.get_billing_company is not empty -%}{{ ORDER.get_billing_company|escape }}<br>{%- endif -%}
+                      {%- if ORDER.get_billing_address_1 is not empty -%}{{ ORDER.get_billing_address_1|escape }}<br>{%- endif -%}
+                      {%- if ORDER.get_billing_address_2 is not empty -%}{{ ORDER.get_billing_address_2|escape }}<br>{%- endif -%}
+                      {%- if ORDER.get_billing_postcode is not empty or ORDER.get_billing_city is not empty -%}{{ ORDER.get_billing_postcode|escape }} {{ ORDER.get_billing_city|escape }}<br>{%- endif -%}
+                      {{- ORDER.get_billing_country|escape -}}
+                    </span>
+                  {%- endif -%}
+                </td>
+
+                <td width="120"></td>
+
+                <td width="260" align="left" valign="top">
+                  {%- if not OPTIONS.wcTicketDontDisplayPayment -%}
+                    <div style="font-size:9pt; font-weight:500; line-height:0.9; color:{{ orange }}; letter-spacing:0.8pt; text-transform:uppercase;">ZAHLUNGSDETAILS</div>
+                    <span style="font-size:8.5pt; line-height:1.05;">
+                      <strong>Bezahlt am:</strong><br>
+                      {%- if ORDER.get_date_paid is not empty -%}
+                        {{ ORDER.get_date_paid|date('d.m.Y') }} | {{ ORDER.get_date_paid|date('H:i') }} Uhr
+                      {%- else -%}
+                        {{ TICKET.order_date_paid_text|date('d.m.Y') }} | {{ TICKET.order_date_paid_text|date('H:i') }} Uhr
+                      {%- endif -%}
+                      <br><br>
+                      <strong>Rechnung &amp; Ticketnummer:</strong><br>
+                      {%- if ORDER.get_payment_method_title is empty -%}
+                        Gratis-Ticket
+                      {%- else -%}
+                        {{ ORDER.get_transaction_id is not empty ? ORDER.get_transaction_id|escape : CODEOBJ.code_display }}
+                      {%- endif -%}
+                      {%- if ORDER.get_coupon_codes -%}<br><strong>Gutscheincode:</strong> {{ ORDER.get_coupon_codes|join(', ') }}{%- endif -%}
+                    </span>
+                  {%- endif -%}
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <tr><td height="14"></td></tr>
+
+        {# Ticket / price #}
+        <tr>
+          <td align="left">
+            <table class="content_grid" width="640" style="width:640px;" align="center" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td width="260" align="left" valign="top">
+                  <div style="font-size:9pt; font-weight:500; line-height:0.9; color:{{ orange }}; span-spacing:0.8pt; text-transform:uppercase;">EINTRITTSKARTE</div>
+                  <span style="font-size:8.8pt; line-height:1.05;"><strong>{{ ORDER_ITEM.get_name|default(PRODUCT.get_name)|escape }}</strong></span>
+                </td>
+
+                <td width="120"></td>
+
+                <td width="260" align="left" valign="top">
+                  {%- if not OPTIONS.wcTicketDontDisplayPrice -%}
+                    <div style="font-size:9pt; font-weight:500; line-height:0.9; color:{{ orange }}; letter-spacing:0.8pt; text-transform:uppercase;">PREIS</div>
+                    <span style="font-size:8.8pt; line-height:1.05;">
+                      <strong>{{ ORDER_ITEM.get_quantity }}x {{ wc_price(ORDER_ITEM.get_subtotal / ORDER_ITEM.get_quantity) }} = {{ wc_price(ORDER_ITEM.get_subtotal + ORDER_ITEM.get_subtotal_tax) }} netto</strong><br>
+                      <span style="font-size:7.5pt; color:#555555;">0 % USt</span>
+                    </span>
+                  {%- endif -%}
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        {%- if TICKET.has_seat and not OPTIONS.wcTicketHideSeatOnPDF -%}
+          <tr><td height="12"></td></tr>
+          <tr><td align="left" style="font-size:8pt;">{{ OPTIONS.wcTicketTransSeat }} <strong>{{ TICKET.seat_label }}{% if TICKET.seat_category %} ({{ TICKET.seat_category }}){% endif %}</strong></td></tr>
+        {%- endif -%}
+
+        {%- if METAOBJ.wc_ticket.name_per_ticket is not empty -%}
+          <tr><td height="8"></td></tr>
+          <tr><td align="left" style="font-size:8pt;">{{ TICKET.name_per_ticket_label }} {{ METAOBJ.wc_ticket.name_per_ticket }}</td></tr>
+        {%- endif -%}
+
+        {%- if OPTIONS.wcTicketDisplayCustomerNote and ORDER.get_customer_note is not empty -%}
+          <tr><td height="8"></td></tr>
+          <tr><td align="left" style="font-size:8pt; font-style:italic;">&quot;{{ ORDER.get_customer_note|escape }}&quot;</td></tr>
+        {%- endif -%}
+
+        <tr><td height="24"></td></tr>
+        <tr>
+          <td align="center" style="font-size:7pt; color:#888888;">{{ TICKET.public_ticket_number }}</td>
+        </tr>
+        <tr><td height="8" style="border-bottom:1pt solid {{ orange }};"></td></tr>
+
+        <tr><td height="14"></td></tr>
+        <tr>
+          <td align="center" style="font-size:7pt; color:{{ ink }}; letter-spacing:0.7pt; line-height:1.45;">
+            <strong>WWW.EMOTIONS-EVENTS.AT</strong><br>
+            MMAG. KLARA MEUSBURGER | OTAKARSTRASSE 7, 4481 ASTEN, ÖSTERREICH
+          </td>
+        </tr>
+      </table>
+
+    </td>
+  </tr>
+</table>
+
+{%- else -%}
+
+  {# Web / email fallback based on the original plugin template #}
+  <h3 style="color:black;text-align:center;">{{ OPTIONS.wcTicketHeading|escape('wp_kses_post')|raw }}</h3>
+  <h4 style="color:black;">{{ PRODUCT.get_name|escape }}</h4>
+
+  {%- if not OPTIONS.wcTicketHideDateOnPDF and TICKET.start_date is not empty -%}
+    <p>{{- TICKET.date_as_string -}}
+      {%- if TICKET.end_date is not empty and TICKET.is_event_over -%}<span style="color:red;"> {{ OPTIONS.wcTicketTransExpired }}</span>{%- endif -%}
+      {%- if TICKET.location is not empty -%}<br>{{ OPTIONS.wcTicketTransLocation }} <strong>{{ TICKET.location|escape('wp_kses_post') }}</strong>{%- endif -%}
+    </p>
+  {%- elseif TICKET.location is not empty -%}
+    <p>{{ OPTIONS.wcTicketTransLocation }} <strong>{{ TICKET.location|escape('wp_kses_post') }}</strong></p>
+  {%- endif -%}
+
+  {%- if not OPTIONS.wcTicketDontDisplayCustomer -%}
+    <p><strong>{{ OPTIONS.wcTicketTransCustomer|escape('wp_kses_post') }}</strong><br>
+    {{ ORDER.get_formatted_billing_address|trim|escape('wp_kses_post') }}</p>
+  {%- endif -%}
+
+  {%- if not OPTIONS.wcTicketDontDisplayPayment -%}
+    <p><strong>{{ OPTIONS.wcTicketTransPaymentDetail|escape('wp_kses_post') }}</strong><br>
+    {{ OPTIONS.wcTicketTransPaymentDetailPaidAt|escape('wp_kses_post') }} <strong>{{ TICKET.order_date_paid_text|escape }}</strong><br>
+    {{ OPTIONS.wcTicketTransPaymentDetailCompletedAt|escape('wp_kses_post') }} <strong>{{ TICKET.order_date_completed_text|escape }}</strong>
+    {%- if ORDER.get_payment_method_title is empty %}<br>{{ OPTIONS.wcTicketTransPaymentDetailFreeTicket|escape('wp_kses_post') }}
+    {%- else %}<br>{{ OPTIONS.wcTicketTransPaymentDetailPaidVia|escape('wp_kses_post') }} <strong>{{ ORDER.get_payment_method_title|escape }} (#{{ ORDER.get_transaction_id|escape }})</strong>{%- endif -%}
+    </p>
+  {%- endif -%}
+
+  <p>{{ OPTIONS.wcTicketTransTicket|escape('wp_kses_post') }} <strong>{{ CODEOBJ.code_display }}</strong></p>
+
+  {%- if not OPTIONS.wcTicketDontDisplayPrice -%}
+    <p>{{ OPTIONS.wcTicketTransPrice|escape('wp_kses_post') }} <strong>{{ wc_price((ORDER_ITEM.get_subtotal + ORDER_ITEM.get_subtotal_tax) / ORDER_ITEM.get_quantity) }}</strong></p>
+  {%- endif -%}
+
+  {%- if not isScanner -%}
+    <div id="qrcode" style="background-color:white !important;padding:15px;margin-top:3em;text-align:center;"></div>
+    <script>jQuery("#qrcode").qrcode("{{ TICKET.qrCodeContent|raw }}");</script>
+  {%- endif -%}
+
+  <p style="text-align:center;">{{ TICKET.public_ticket_number }}</p>
+
+{%- endif -%}
+
+{% endautoescape %}{% endapply %}
