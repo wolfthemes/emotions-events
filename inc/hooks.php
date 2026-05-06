@@ -22,6 +22,7 @@ function emotions_enqueue_scripts() {
 
 		wp_localize_script( 'emotions-app', 'emotionsCheckout', [
 			'eventData' => $cart_event_data,
+			'nonce'     => wp_create_nonce('wc_store_api'),
 		]);
 	}
 }

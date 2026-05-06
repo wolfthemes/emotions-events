@@ -2,6 +2,8 @@ import React from "react";
 import { createRoot } from '@wordpress/element';
 import AutoBind from "auto-bind";
 
+import { initQtyCounter } from './modules/checkout-qty.js';
+
 class Emotions {
 
 	constructor() {
@@ -13,16 +15,16 @@ class Emotions {
 		this.addEventListener()
 	}
 
-	initQtyCounter() {
-		this.observer = new MutationObserver(() => {
-			const items = document.querySelectorAll('.wc-block-components-order-summary-item:not([data-qty-enhanced])');
-			items.forEach(item => {
-				item.dataset.qtyEnhanced = true;
-				this.injectCounter(item);
-			});
-		});
-		this.observer.observe(document.body, { childList: true, subtree: true });
-	}
+	// initQtyCounter() {
+	// 	this.observer = new MutationObserver(() => {
+	// 		const items = document.querySelectorAll('.wc-block-components-order-summary-item:not([data-qty-enhanced])');
+	// 		items.forEach(item => {
+	// 			item.dataset.qtyEnhanced = true;
+	// 			this.injectCounter(item);
+	// 		});
+	// 	});
+	// 	this.observer.observe(document.body, { childList: true, subtree: true });
+	// }
 
 	injectCounter(item) {
 		// Remove old injection inside description
@@ -82,8 +84,8 @@ class Emotions {
 	pageLoaded() {
 		if (document.body.classList.contains('woocommerce-checkout')) {
 			this.checkoutEventDate();
-        	this.initQtyCounter();
-    	}
+			initQtyCounter();
+		}
 	}
 
 	addEventListener() {
