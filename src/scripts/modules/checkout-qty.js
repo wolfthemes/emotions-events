@@ -46,11 +46,17 @@ function injectCounterRow( cartItemsBlock, cartItems ) {
         currentQty = newQty;
         valueEl.textContent = currentQty;
 
+        console.log( 'updating to', currentQty, 'key:', item.key );
         const ok = await updateCartItem( item.key, currentQty );
+        console.log( 'update result:', ok );
+
         if ( ! ok ) {
             currentQty -= delta;
             valueEl.textContent = currentQty;
+            return;
         }
+
+        window.wp.data.dispatch( 'wc/store/cart' ).invalidateResolutionForStore();
     }
 
     minusBtn.addEventListener( 'click', () => handleUpdate( -1 ) );

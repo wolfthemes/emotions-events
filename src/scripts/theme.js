@@ -15,17 +15,6 @@ class Emotions {
 		this.addEventListener()
 	}
 
-	// initQtyCounter() {
-	// 	this.observer = new MutationObserver(() => {
-	// 		const items = document.querySelectorAll('.wc-block-components-order-summary-item:not([data-qty-enhanced])');
-	// 		items.forEach(item => {
-	// 			item.dataset.qtyEnhanced = true;
-	// 			this.injectCounter(item);
-	// 		});
-	// 	});
-	// 	this.observer.observe(document.body, { childList: true, subtree: true });
-	// }
-
 	injectCounter(item) {
 		// Remove old injection inside description
 		const cartItemsBlock = document.querySelector('.wp-block-woocommerce-checkout-order-summary-cart-items-block');
@@ -48,18 +37,18 @@ class Emotions {
 	checkoutEventDate() {
 		if ( ! window.emotionsCheckout?.eventData ) return;
 
-		console.log( window.emotionsCheckout.eventData )
+		// console.log( window.emotionsCheckout.eventData )
 
 		const productId = Object.keys( window.emotionsCheckout.eventData )[0];
 		const date = window.emotionsCheckout.eventData[ productId ]?.date;
 
-		console.log( date )
+		// console.log( date )
 
 		if ( ! date ) return;
 
 		const inject = () => {
 			const items = document.querySelectorAll( '.wc-block-components-order-summary-item:not([data-date-injected])' );
-			console.log( 'items found:', items.length );
+			// console.log( 'items found:', items.length );
 			items.forEach( item => {
 				const nameEl = item.querySelector( '.wc-block-components-product-name' );
 

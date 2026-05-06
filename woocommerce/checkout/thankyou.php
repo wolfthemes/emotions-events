@@ -9,10 +9,13 @@ $product     = $first_item ? $first_item->get_product() : null;
 
 $ticket_id = '';
 foreach ( $order->get_items() as $item ) {
-	$ticket_id = $item->get_meta( '_saso_eventtickets_public_ticket_ids' );
-	if ( $ticket_id ) {
-break;
-	}
+    $raw = $item->get_meta( '_saso_eventtickets_public_ticket_ids' );
+    if ( $raw ) {
+        // Vollstart stores multiple IDs comma-separated — take the first one
+        $ids       = array_map( 'trim', explode( ',', $raw ) );
+        $ticket_id = $ids[0];
+        break;
+    }
 }
 
 $ticket_base_url = WP_PLUGIN_URL . '/event-tickets-with-ticket-scanner/ticket/';
