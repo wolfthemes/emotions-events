@@ -7,13 +7,11 @@ $order_items = $order->get_items();
 $first_item  = reset( $order_items );
 $product     = $first_item ? $first_item->get_product() : null;
 
-$ticket_id = '';
+$ticket_ids = [];
 foreach ( $order->get_items() as $item ) {
     $raw = $item->get_meta( '_saso_eventtickets_public_ticket_ids' );
     if ( $raw ) {
-        // Vollstart stores multiple IDs comma-separated — take the first one
-        $ids       = array_map( 'trim', explode( ',', $raw ) );
-        $ticket_id = $ids[0];
+        $ticket_ids = array_map( 'trim', explode( ',', $raw ) );
         break;
     }
 }
@@ -21,7 +19,7 @@ foreach ( $order->get_items() as $item ) {
 $ticket_base_url = WP_PLUGIN_URL . '/event-tickets-with-ticket-scanner/ticket/';
 /* $ticket_url      = $ticket_id ? $ticket_base_url . $ticket_id : ''; */
 $ticket_url = false;
-$pdf_url         = $ticket_id ? $ticket_base_url . $ticket_id . '?pdf' : '';
+$pdf_url         = $ticket_ids[0] ? $ticket_base_url . $ticket_ids[0] . '?pdf' : '';
 
 $date_str = emotions_get_event_date_string( $product->get_id() );
 ?>
@@ -69,12 +67,13 @@ $date_str = emotions_get_event_date_string( $product->get_id() );
 			<p class="emotions-order-received__outro">
 				<?php esc_html_e( 'Falls du bei der E-Mail-Adresse vertippt hast, kein Stress — du kannst dein Ticket unten direkt herunterladen und abspeichern.', 'emotions' ); ?></p>
 
-			<?php if ( $pdf_url ) : ?>
-			<a href="<?php echo esc_url( $pdf_url ); ?>" target="_blank" class="emotions-order-received__btn">
-				<?php esc_html_e( 'Ticket als PDF herunterladen', 'emotions' ); ?>
-				<span>↓</span>
-			</a>
-			<?php endif; ?>
+			<?php foreach ( $ticket_ids as $i => $tid ) : ?>
+				<a href="<?php echo esc_url( $ticket_base_url . $tid . '?pdf' ); ?>" target="_blank" class="emotions-order-received__btn">
+					<?php echo esc_html( sprintf( __( 'Ticket %d als PDF herunterladen', 'emotions' ), $i + 1 ) ); ?>
+					<span>↓</span>
+				</a>
+				<br>
+			<?php endforeach; ?>
 
 			<div class="emotions-order-received__pattern">
 				<img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/img/logo-pattern.png' ); ?>">
