@@ -127,7 +127,7 @@
                   {%- if not OPTIONS.wcTicketDontDisplayPrice -%}
                     <div style="font-size:9pt; font-weight:500; line-height:0.9; color:{{ orange }}; letter-spacing:0.8pt; text-transform:uppercase;">PREIS</div>
                     <span style="font-size:8.8pt; line-height:1.05;">
-                      <strong>{{ ORDER_ITEM.get_quantity }}x {{ wc_price(ORDER_ITEM.get_subtotal / ORDER_ITEM.get_quantity) }} = {{ wc_price(ORDER_ITEM.get_subtotal + ORDER_ITEM.get_subtotal_tax) }} netto</strong><br>
+                      <strong>{{ wc_price(ORDER_ITEM.get_subtotal / ORDER_ITEM.get_quantity) }} netto</strong><br>
                       <span style="font-size:7.5pt; color:#555555;">0 % USt</span>
                     </span>
                   {%- endif -%}

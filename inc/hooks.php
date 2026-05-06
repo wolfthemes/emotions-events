@@ -3,7 +3,7 @@
 defined( 'ABSPATH' ) || exit;
 
 function emotions_enqueue_scripts() {
-	$version = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? time() : '1.0.0';
+	$version = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? time() : '1.0.1';
 
 	wp_enqueue_style( 'emotions-app', get_stylesheet_directory_uri() . '/build/styles.css', array(), $version );
 
