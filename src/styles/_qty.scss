@@ -30,7 +30,7 @@
 .qty-counter-controls button {
 	width: 36px;
 	height: 36px;
-	border-radius: var(--theme-border-radius) ;
+	border-radius: var(--theme-border-radius)!important;
 	border: none;
 	cursor: pointer;
 	font-size: 18px;
@@ -38,10 +38,11 @@
 	align-items: center;
 	justify-content: center;
 	line-height: 1;
+	letter-spacing:0!important;
 }
 
 .qty-minus {
-	background: #3a3a3a;
+	background: #3a3a3a!important;
 	color: #fff;
 }
 
