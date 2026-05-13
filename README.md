@@ -28,6 +28,10 @@ Each event is a **WooCommerce product** with ticket functionality attached.
    - Any additional ticket information to display on the PDF
 5. Publish
 
+![Ticket Product](doc/ticket-product.png)
+
+> I recommend keeping the "Customer can choose the day", "Request a value for each ticket" , "The value for each ticket is mandatory" and similar option unchecked, so it is a simple ticket purchase for the customer and no option to set on their side.
+
 To run multiple events simultaneously, simply create multiple products. Each is independent.
 
 ### Finding the Product ID
