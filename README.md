@@ -66,6 +66,11 @@ To add or configure a Buy Button:
 | **Size / Alignment**          | Adjust to fit the page layout                                                                                  |
 
 > The quantity a customer can select is handled at checkout, and alos predefined in the Buy Button as well.
+>
+
+![Get Product ID](doc/product-id.png)
+
+![Get Product Variation ID](doc/product-variation-id.png)
 
 4. Click **Publish** / **Update**
 
