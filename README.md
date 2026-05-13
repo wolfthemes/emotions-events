@@ -61,7 +61,7 @@ To add or configure a Buy Button:
 | **Text**                      | The button label, e.g. `Jetzt Ticket kaufen`                                                                   |
 | **Size / Alignment**          | Adjust to fit the page layout                                                                                  |
 
-> The quantity a customer can select is handled at checkout, not in the Buy Button widget itself.
+> The quantity a customer can select is handled at checkout, and alos predefined in the Buy Button as well.
 
 4. Click **Publish** / **Update**
 
