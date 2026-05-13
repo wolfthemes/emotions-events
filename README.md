@@ -1,4 +1,4 @@
-# Emotions – Events die bewegen
+# Emotions
 ## Getting Started
 
 This document covers everything you need to manage your event ticketing system day to day.
