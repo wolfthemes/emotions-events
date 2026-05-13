@@ -3,6 +3,9 @@
 
 This document covers everything you need to manage your event ticketing system day to day.
 
+Don’t worry if it feels a bit technical at first glance — the workflow is actually quite straightforward once you create your first event and process your first order. The goal of this document is simply to centralize everything in one place so managing the platform remains easy and organized over time.
+
+
 ---
 
 ## Stack
