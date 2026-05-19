@@ -47,7 +47,7 @@ $date_str = emotions_get_event_date_string( $product->get_id() );
 				<p><?php esc_html_e( 'Mit deinem Ticketkauf unterstützt du nicht nur dich selbst, sondern auch ein österreichisches Herzensunternehmen mit einer großen Vision und dem Wunsch, echte Begegnung und spürbare Momente zu schaffen. Danke, dass du das möglich machst.', 'emotions' ); ?></p>
 				<p>
 					<?php esc_html_e( 'Bis wir uns sehen: Wenn du magst, hör schon jetzt in unsere', 'emotions' ); ?>
-					<a href="#" class="emotions-order-received__link">Spotify Playlist</a>
+					<a href="https://open.spotify.com/playlist/4Qpb1fJME98fOv8IRelqIa?si=645cd0ec563a40db" class="emotions-order-received__link">Spotify Playlist</a>
 					<?php esc_html_e( 'rein und stimm dich auf das Event ein.', 'emotions' ); ?>
 				</p>
 			</div>
