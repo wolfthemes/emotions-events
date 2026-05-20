@@ -6,6 +6,8 @@
 {%- set ink = '#111111' -%}
 {%- set pattern_url = 'http://sandbox.wolfthemes.com/wp-content/themes/emotions/assets/img/ticket-pattern.png' -%}
 
+{%- set time_24h = PRODUCT.get_meta('saso_eventtickets_ticket_start_time') -%}
+
 <style>
   body, table, tr, td, p, span, strong {
     font-family: helvetica, arial, sans-serif;
@@ -38,7 +40,7 @@
         <tr>
           <td align="center">
             {%- if not OPTIONS.wcTicketHideDateOnPDF and TICKET.start_date is not empty -%}
-              <span style="font-size:9.5pt; font-weight:500; color:{{ orange }}; letter-spacing:0.7pt; text-transform:uppercase;">{{ TICKET.start_date|date('d.m.Y') }} | {{ TICKET.start_date|date('H:i') }} UHR{%- if TICKET.location is not empty %} | {{ TICKET.location|escape|upper }}{%- endif %}</span>
+              <span style="font-size:9.5pt; font-weight:500; color:{{ orange }}; letter-spacing:0.7pt; text-transform:uppercase;">{{ TICKET.start_date|date('d.m.Y') }} | {{ time_24h is not empty ? time_24h : TICKET.start_date|date('H:i') }} UHR{%- if TICKET.location is not empty %} | {{ TICKET.location|escape|upper }}{%- endif %}</span>
             {%- elseif TICKET.location is not empty -%}
               <span style="font-size:9.5pt; font-weight:500; color:{{ orange }}; letter-spacing:0.7pt; text-transform:uppercase;">{{ TICKET.location|escape|upper }}</span>
             {%- endif -%}
