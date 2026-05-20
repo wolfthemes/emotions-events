@@ -40,7 +40,7 @@ $date_str = emotions_get_event_date_string( $product->get_id() );
 			<div class="emotions-order-received__message">
 				<p class="emotions-order-received__intro">
 				<span class="emotions-order-received__highlight">
-					<?php esc_html_e( 'Danke, dass du dir Zeit für dich nimmst.', 'emotions' ); ?>
+					<?php esc_html_e( 'Danke, dass du dir Zeit für dich nimmst. Für dein Leben und für das, was dich bewegt.', 'emotions' ); ?>
 				</span>
 					<?php esc_html_e( 'Für dein Innenleben. Für deine Emotionen.', 'emotions' ); ?>
 				</p>
@@ -53,13 +53,7 @@ $date_str = emotions_get_event_date_string( $product->get_id() );
 			</div>
 
 			<p class="emotions-order-received__confirmation">
-				<?php esc_html_e( 'Deine Bestätigung und', 'emotions' ); ?>
-				<?php if ( $pdf_url ) : ?>
-					<a href="<?php echo esc_url( $pdf_url ); ?>" target="_blank" class="emotions-order-received__link"><?php esc_html_e( 'dein Ticket', 'emotions' ); ?></a>
-				<?php else : ?>
-					<span class="emotions-order-received__link"><?php esc_html_e( 'dein Ticket', 'emotions' ); ?></span>
-				<?php endif; ?>
-				<?php esc_html_e( 'wurden bereits', 'emotions' ); ?>
+				<?php esc_html_e( 'Deine Bestätigung und dein Ticket wurden bereits', 'emotions' ); ?>
 				<span class="emotions-order-received__link"><?php esc_html_e( 'per E-Mail', 'emotions' ); ?></span>
 				<?php esc_html_e( 'an dich geschickt.', 'emotions' ); ?>
 			</p>
